@@ -1,0 +1,82 @@
+.header{
+padding: 36px 0 25px 0;
+
+
+    &__content{
+      @include flex (center, space-between,wrap);
+    }
+    &__list {
+        @include flex (center, center , wrap);
+       display: none;
+    }
+    &__logo {
+        @include font (700, 20 ,$text-black)
+    }
+    &__input {
+        border: none;
+    }
+    &__label {
+        @include flex (center , center, wrap )
+    }
+    &__item{
+        margin-left: 30px;
+
+    }
+    &__link {
+        @include font (400, 16px , $text-black)
+    }
+}
+
+
+
+.burger{
+        position: relative;
+        cursor: pointer;
+        &__list{
+            display: none;
+            position: absolute;
+            top: 70px;
+            right: 0px;
+        }
+        &__menu{
+            width: 40px;
+            height: 40px;
+            @include flex(center,space-between,wrap);
+        }
+        &__line{
+            background: #000;
+            width: 35px;
+            margin: 0 auto;
+            height: 4px;
+        }
+        &__close{
+            display: none;
+            @include font(600, 40px , $text-black);
+            line-height: 0.5;
+        }
+        &__menu.active  &__close {
+            display: flex;
+        }
+        &__menu.active &__line{
+            display: none;
+        }
+        &__menu.active ~ &__list{
+            display: block;
+        }
+        .header__item{
+            margin-top: 15px;
+            text-align: center;
+        }
+    
+}
+
+@media screen and (max-width: 768px){
+    .burger{
+        display: block;
+    }
+    .header{
+        &__list{
+            display: none;
+        }
+    }
+}
